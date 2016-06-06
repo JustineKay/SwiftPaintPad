@@ -8,12 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		82A574DA1D0603D60012A099 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82A574D91D0603D60012A099 /* AppDelegate.swift */; };
-		82A574DC1D0603D60012A099 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82A574DB1D0603D60012A099 /* ViewController.swift */; };
 		82A574DF1D0603D60012A099 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 82A574DD1D0603D60012A099 /* Main.storyboard */; };
 		82A574E11D0603D60012A099 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 82A574E01D0603D60012A099 /* Assets.xcassets */; };
 		82A574E41D0603D60012A099 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 82A574E21D0603D60012A099 /* LaunchScreen.storyboard */; };
 		82A574EF1D0603D60012A099 /* PaintTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82A574EE1D0603D60012A099 /* PaintTests.swift */; };
 		82A574FA1D0603D60012A099 /* PaintUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82A574F91D0603D60012A099 /* PaintUITests.swift */; };
+		82A575081D061B230012A099 /* PaintPadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82A575071D061B230012A099 /* PaintPadViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,7 +36,6 @@
 /* Begin PBXFileReference section */
 		82A574D61D0603D60012A099 /* Paint.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Paint.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		82A574D91D0603D60012A099 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		82A574DB1D0603D60012A099 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		82A574DE1D0603D60012A099 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		82A574E01D0603D60012A099 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		82A574E31D0603D60012A099 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -47,6 +46,7 @@
 		82A574F51D0603D60012A099 /* PaintUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PaintUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		82A574F91D0603D60012A099 /* PaintUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaintUITests.swift; sourceTree = "<group>"; };
 		82A574FB1D0603D60012A099 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		82A575071D061B230012A099 /* PaintPadViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaintPadViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,7 +98,7 @@
 			isa = PBXGroup;
 			children = (
 				82A574D91D0603D60012A099 /* AppDelegate.swift */,
-				82A574DB1D0603D60012A099 /* ViewController.swift */,
+				82A575071D061B230012A099 /* PaintPadViewController.swift */,
 				82A574DD1D0603D60012A099 /* Main.storyboard */,
 				82A574E01D0603D60012A099 /* Assets.xcassets */,
 				82A574E21D0603D60012A099 /* LaunchScreen.storyboard */,
@@ -193,6 +193,7 @@
 				TargetAttributes = {
 					82A574D51D0603D60012A099 = {
 						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = 24Q7YD9VLQ;
 					};
 					82A574E91D0603D60012A099 = {
 						CreatedOnToolsVersion = 7.3.1;
@@ -256,8 +257,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				82A574DC1D0603D60012A099 /* ViewController.swift in Sources */,
 				82A574DA1D0603D60012A099 /* AppDelegate.swift in Sources */,
+				82A575081D061B230012A099 /* PaintPadViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -401,9 +402,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = Paint/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.intrepid.Paint;
+				PRODUCT_BUNDLE_IDENTIFIER = com.justinekay.Paint;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -412,9 +414,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = Paint/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.intrepid.Paint;
+				PRODUCT_BUNDLE_IDENTIFIER = com.justinekay.Paint;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
