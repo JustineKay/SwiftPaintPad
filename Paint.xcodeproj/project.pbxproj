@@ -7,13 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8256F3481D0735A90075778A /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8256F3471D0735A90075778A /* SettingsViewController.swift */; };
+		8256F34A1D0735D40075778A /* SketchPadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8256F3491D0735D40075778A /* SketchPadViewController.swift */; };
 		82A574DA1D0603D60012A099 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82A574D91D0603D60012A099 /* AppDelegate.swift */; };
 		82A574DF1D0603D60012A099 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 82A574DD1D0603D60012A099 /* Main.storyboard */; };
 		82A574E11D0603D60012A099 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 82A574E01D0603D60012A099 /* Assets.xcassets */; };
 		82A574E41D0603D60012A099 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 82A574E21D0603D60012A099 /* LaunchScreen.storyboard */; };
 		82A574EF1D0603D60012A099 /* PaintTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82A574EE1D0603D60012A099 /* PaintTests.swift */; };
 		82A574FA1D0603D60012A099 /* PaintUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82A574F91D0603D60012A099 /* PaintUITests.swift */; };
-		82A575081D061B230012A099 /* PaintPadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82A575071D061B230012A099 /* PaintPadViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,6 +35,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		8256F3471D0735A90075778A /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		8256F3491D0735D40075778A /* SketchPadViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SketchPadViewController.swift; sourceTree = "<group>"; };
 		82A574D61D0603D60012A099 /* Paint.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Paint.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		82A574D91D0603D60012A099 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		82A574DE1D0603D60012A099 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -46,7 +49,6 @@
 		82A574F51D0603D60012A099 /* PaintUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PaintUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		82A574F91D0603D60012A099 /* PaintUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaintUITests.swift; sourceTree = "<group>"; };
 		82A574FB1D0603D60012A099 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		82A575071D061B230012A099 /* PaintPadViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaintPadViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,7 +100,8 @@
 			isa = PBXGroup;
 			children = (
 				82A574D91D0603D60012A099 /* AppDelegate.swift */,
-				82A575071D061B230012A099 /* PaintPadViewController.swift */,
+				8256F3471D0735A90075778A /* SettingsViewController.swift */,
+				8256F3491D0735D40075778A /* SketchPadViewController.swift */,
 				82A574DD1D0603D60012A099 /* Main.storyboard */,
 				82A574E01D0603D60012A099 /* Assets.xcassets */,
 				82A574E21D0603D60012A099 /* LaunchScreen.storyboard */,
@@ -257,8 +260,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8256F34A1D0735D40075778A /* SketchPadViewController.swift in Sources */,
 				82A574DA1D0603D60012A099 /* AppDelegate.swift in Sources */,
-				82A575081D061B230012A099 /* PaintPadViewController.swift in Sources */,
+				8256F3481D0735A90075778A /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -487,6 +491,7 @@
 				82A575001D0603D60012A099 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		82A575011D0603D60012A099 /* Build configuration list for PBXNativeTarget "PaintTests" */ = {
 			isa = XCConfigurationList;
@@ -495,6 +500,7 @@
 				82A575031D0603D60012A099 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		82A575041D0603D60012A099 /* Build configuration list for PBXNativeTarget "PaintUITests" */ = {
 			isa = XCConfigurationList;
@@ -503,6 +509,7 @@
 				82A575061D0603D60012A099 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -1,14 +1,14 @@
 //
-//  PaintPadViewController.swift
+//  SettingsViewController.swift
 //  Paint
 //
-//  Created by Justine Kay on 6/6/16.
+//  Created by Justine Kay on 6/7/16.
 //  Copyright © 2016 Justine Kay. All rights reserved.
 //
 
 import UIKit
 
-class PaintPadViewController: UIViewController {
+class SettingsViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
