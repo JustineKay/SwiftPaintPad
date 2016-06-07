@@ -37,7 +37,9 @@
                             <constraint firstItem="TyZ-nZ-DMv" firstAttribute="leading" secondItem="tZK-kh-JY7" secondAttribute="leading" id="lXp-e5-sCg"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Sketch Pad" id="cg6-KS-xwO"/>
+                    <navigationItem key="navigationItem" title="Sketch Pad" id="cg6-KS-xwO">
+                        <barButtonItem key="rightBarButtonItem" title="Clear" id="dCO-qn-VJd"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="mainImageView" destination="tZK-kh-JY7" id="DTp-1r-2Hn"/>
                         <outlet property="tempImageView" destination="TyZ-nZ-DMv" id="q0b-MO-R1U"/>
@@ -212,7 +214,9 @@
                             <constraint firstAttribute="leadingMargin" secondItem="9fd-6o-xBg" secondAttribute="leading" id="y6z-EY-nv2"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Ink up!" id="Fci-cd-2Vu"/>
+                    <navigationItem key="navigationItem" title="Ink up!" id="Fci-cd-2Vu">
+                        <barButtonItem key="rightBarButtonItem" title="Cancel" id="H2Z-kb-lAe"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="blueSlider" destination="9fd-6o-xBg" id="2Dm-gA-8bU"/>
                         <outlet property="greenSlider" destination="fGH-Dh-x6e" id="j65-Tu-dg5"/>
