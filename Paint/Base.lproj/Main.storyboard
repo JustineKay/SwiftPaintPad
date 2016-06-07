@@ -75,66 +75,106 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Width" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5os-Yi-AGg">
-                                <rect key="frame" x="20" y="323" width="46" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <rect key="frame" x="20" y="316" width="47" height="23"/>
+                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Opacity" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xEX-xS-Ejj">
-                                <rect key="frame" x="20" y="390" width="60" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <rect key="frame" x="20" y="385" width="60" height="24"/>
+                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="KWJ-Ev-Why">
-                                <rect key="frame" x="18" y="352" width="564" height="31"/>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="10" minValue="0.0" maxValue="80" translatesAutoresizingMaskIntoConstraints="NO" id="KWJ-Ev-Why">
+                                <rect key="frame" x="18" y="347" width="564" height="31"/>
+                                <connections>
+                                    <action selector="sliderChanged:" destination="3Jh-Bg-z25" eventType="valueChanged" id="laE-Rw-o90"/>
+                                </connections>
                             </slider>
-                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="Mdi-Eu-Ta3">
-                                <rect key="frame" x="18" y="419" width="564" height="31"/>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="Mdi-Eu-Ta3">
+                                <rect key="frame" x="18" y="417" width="564" height="31"/>
+                                <connections>
+                                    <action selector="sliderChanged:" destination="3Jh-Bg-z25" eventType="valueChanged" id="ym7-4S-4oh"/>
+                                </connections>
                             </slider>
-                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="nPd-LZ-Zyy">
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="0.0" maxValue="255" translatesAutoresizingMaskIntoConstraints="NO" id="nPd-LZ-Zyy">
                                 <rect key="frame" x="18" y="486" width="564" height="31"/>
+                                <connections>
+                                    <action selector="sliderChanged:" destination="3Jh-Bg-z25" eventType="valueChanged" id="Lca-70-rfV"/>
+                                </connections>
                             </slider>
-                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="fGH-Dh-x6e">
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="0.0" maxValue="255" translatesAutoresizingMaskIntoConstraints="NO" id="fGH-Dh-x6e">
                                 <rect key="frame" x="18" y="524" width="564" height="31"/>
+                                <connections>
+                                    <action selector="sliderChanged:" destination="3Jh-Bg-z25" eventType="valueChanged" id="IER-N0-Py0"/>
+                                </connections>
                             </slider>
-                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="9fd-6o-xBg">
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="0.0" maxValue="255" translatesAutoresizingMaskIntoConstraints="NO" id="9fd-6o-xBg">
                                 <rect key="frame" x="18" y="562" width="564" height="31"/>
+                                <connections>
+                                    <action selector="sliderChanged:" destination="3Jh-Bg-z25" eventType="valueChanged" id="7ip-1d-GWP"/>
+                                </connections>
                             </slider>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g7S-Rq-ajX">
-                                <rect key="frame" x="569" y="323" width="11" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <rect key="frame" x="571" y="316" width="9" height="23"/>
+                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kv3-ae-EwK">
-                                <rect key="frame" x="569" y="390" width="11" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <rect key="frame" x="571" y="385" width="9" height="24"/>
+                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="RGB" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xb7-pO-vvv">
-                                <rect key="frame" x="20" y="457" width="34" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <rect key="frame" x="20" y="455" width="35" height="23"/>
+                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yBC-QL-aFI">
-                                <rect key="frame" x="20" y="72" width="560" height="243"/>
+                                <rect key="frame" x="20" y="72" width="560" height="236"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="H4Z-ls-WYo">
-                                        <rect key="frame" x="216" y="58" width="128" height="128"/>
+                                        <rect key="frame" x="216" y="54" width="128" height="128"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="128" id="Xyv-IP-8PL"/>
                                             <constraint firstAttribute="width" constant="128" id="sPS-RW-98w"/>
                                         </constraints>
                                     </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JRz-JY-pd5">
+                                        <rect key="frame" x="352" y="99" width="52" height="38"/>
+                                        <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="19"/>
+                                        <state key="normal" title="Select"/>
+                                        <connections>
+                                            <action selector="selectButtonTapped:" destination="3Jh-Bg-z25" eventType="touchUpInside" id="b86-Wn-QlY"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ND1-T0-phy">
+                                        <rect key="frame" x="360" y="153" width="37" height="33"/>
+                                        <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="15"/>
+                                        <state key="normal" title="Reset"/>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
+                                    <constraint firstItem="JRz-JY-pd5" firstAttribute="centerY" secondItem="H4Z-ls-WYo" secondAttribute="centerY" id="3jx-1e-TYo"/>
+                                    <constraint firstItem="JRz-JY-pd5" firstAttribute="leading" secondItem="H4Z-ls-WYo" secondAttribute="trailing" constant="8" symbolic="YES" id="7V1-pc-WOn"/>
                                     <constraint firstItem="H4Z-ls-WYo" firstAttribute="centerX" secondItem="yBC-QL-aFI" secondAttribute="centerX" id="Dgi-Jl-yE1"/>
+                                    <constraint firstItem="ND1-T0-phy" firstAttribute="leading" secondItem="H4Z-ls-WYo" secondAttribute="trailing" constant="8" symbolic="YES" id="END-Ed-BMc"/>
                                     <constraint firstItem="H4Z-ls-WYo" firstAttribute="centerY" secondItem="yBC-QL-aFI" secondAttribute="centerY" id="XIu-W8-Pn6"/>
+                                    <constraint firstItem="ND1-T0-phy" firstAttribute="baseline" secondItem="H4Z-ls-WYo" secondAttribute="baseline" id="bsP-5g-T2x"/>
+                                    <constraint firstItem="ND1-T0-phy" firstAttribute="top" secondItem="JRz-JY-pd5" secondAttribute="bottom" constant="16" id="eaQ-eD-gVF"/>
+                                    <constraint firstItem="ND1-T0-phy" firstAttribute="centerX" secondItem="JRz-JY-pd5" secondAttribute="centerX" id="xvw-ay-bNQ"/>
                                 </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="END-Ed-BMc"/>
+                                        <exclude reference="bsP-5g-T2x"/>
+                                    </mask>
+                                </variation>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -171,6 +211,14 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Ink up!" id="Fci-cd-2Vu"/>
+                    <connections>
+                        <outlet property="blueSlider" destination="9fd-6o-xBg" id="2Dm-gA-8bU"/>
+                        <outlet property="greenSlider" destination="fGH-Dh-x6e" id="j65-Tu-dg5"/>
+                        <outlet property="opacitySlider" destination="Mdi-Eu-Ta3" id="hwE-EU-lf8"/>
+                        <outlet property="previewImageView" destination="H4Z-ls-WYo" id="yvr-XF-xCy"/>
+                        <outlet property="redSlider" destination="nPd-LZ-Zyy" id="24r-jD-sME"/>
+                        <outlet property="widthSlider" destination="KWJ-Ev-Why" id="O31-47-mUs"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="G7c-bj-B1b" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
