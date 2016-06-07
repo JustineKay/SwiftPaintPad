@@ -6,7 +6,7 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--Sketch Pad View Controller-->
+        <!--Sketch Pad-->
         <scene sceneID="gak-e1-X5m">
             <objects>
                 <viewController id="Xai-aS-1d3" customClass="SketchPadViewController" customModule="Paint" customModuleProvider="target" sceneMemberID="viewController">
@@ -37,6 +37,7 @@
                             <constraint firstItem="TyZ-nZ-DMv" firstAttribute="leading" secondItem="tZK-kh-JY7" secondAttribute="leading" id="lXp-e5-sCg"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="Sketch Pad" id="cg6-KS-xwO"/>
                     <connections>
                         <outlet property="mainImageView" destination="tZK-kh-JY7" id="DTp-1r-2Hn"/>
                         <outlet property="tempImageView" destination="TyZ-nZ-DMv" id="q0b-MO-R1U"/>
@@ -44,7 +45,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IaL-ZT-LKR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="944" y="1287"/>
+            <point key="canvasLocation" x="1756" y="1287"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="uyi-AF-dw5">
@@ -149,7 +150,8 @@
                                         <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="19"/>
                                         <state key="normal" title="Select"/>
                                         <connections>
-                                            <action selector="selectButtonTapped:" destination="3Jh-Bg-z25" eventType="touchUpInside" id="b86-Wn-QlY"/>
+                                            <action selector="selectButtonTapped:" destination="3Jh-Bg-z25" eventType="touchUpInside" id="olD-yG-6db"/>
+                                            <segue destination="wTW-aR-tCx" kind="showDetail" identifier="showSketchPad" id="jX2-Gv-R67"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ND1-T0-phy">
@@ -230,12 +232,33 @@
                 <splitViewController id="GZy-4A-scB" sceneMemberID="viewController">
                     <connections>
                         <segue destination="8dO-k9-MaQ" kind="relationship" relationship="masterViewController" id="kp4-Jf-aNU"/>
-                        <segue destination="Xai-aS-1d3" kind="relationship" relationship="detailViewController" id="ni6-dZ-Kjh"/>
+                        <segue destination="wTW-aR-tCx" kind="relationship" relationship="detailViewController" id="ni6-dZ-Kjh"/>
                     </connections>
                 </splitViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zUD-Mf-PGg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="124" y="957"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="6jK-CZ-4Dc">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="wTW-aR-tCx" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Qx4-KR-N0D">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Xai-aS-1d3" kind="relationship" relationship="rootViewController" id="YRJ-vR-wm2"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VGV-kV-mUm" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="944" y="1287"/>
+        </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="jX2-Gv-R67"/>
+    </inferredMetricsTieBreakers>
 </document>

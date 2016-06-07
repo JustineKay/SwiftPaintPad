@@ -8,11 +8,6 @@
 
 import UIKit
 
-protocol SettingsViewControllerDelegate: class
-{
-    func settingsViewControllerFinished(settingsViewController: SettingsViewController)
-}
-
 class SettingsViewController: UIViewController
 {
     
@@ -25,19 +20,35 @@ class SettingsViewController: UIViewController
     @IBOutlet weak var greenSlider: UISlider!
     @IBOutlet weak var blueSlider: UISlider!
     
-    var brush: CGFloat = 10.0
+    var width: CGFloat = 10.0
     var opacity: CGFloat = 1.0
     var red: CGFloat = 0.0
     var green: CGFloat = 0.0
     var blue: CGFloat = 0.0
     
-    weak var delegate: SettingsViewControllerDelegate?
+    let defaults = NSUserDefaults.standardUserDefaults()
+    
+    struct Settings {
+        static let WidthKey = "width"
+        static let OpacityKey = "opacity"
+        static let RedKey = "red"
+        static let GreenKey = "green"
+        static let BlueKey = "blue"
+    }
+    
+    func saveSettings() {
+        defaults.setFloat(Float(width), forKey: Settings.WidthKey)
+        defaults.setFloat(Float(opacity), forKey: Settings.OpacityKey)
+        defaults.setFloat(Float(red), forKey: Settings.RedKey)
+        defaults.setFloat(Float(green), forKey: Settings.GreenKey)
+        defaults.setFloat(Float(blue), forKey: Settings.BlueKey)
+    }
     
     override func viewWillAppear(animated: Bool)
     {
         super.viewWillAppear(animated)
         
-        widthSlider.value = Float(brush)
+        widthSlider.value = Float(width)
         opacitySlider.value = Float(opacity)
         redSlider.value = Float(red * 255.0)
         greenSlider.value = Float(green * 255.0)
@@ -48,14 +59,15 @@ class SettingsViewController: UIViewController
     
     @IBAction func selectButtonTapped(sender: AnyObject)
     {
-        self.delegate?.settingsViewControllerFinished(self)
+        saveSettings()
+        defaults.setBool(true, forKey: "saved")
     }
     
     @IBAction func sliderChanged(sender: UISlider)
     {
         
         if sender == widthSlider {
-            brush = CGFloat(sender.value)
+            width = CGFloat(sender.value)
         } else if sender == opacitySlider {
             opacity = CGFloat(sender.value)
         } else {
@@ -72,7 +84,7 @@ class SettingsViewController: UIViewController
         let context = UIGraphicsGetCurrentContext()
         
         CGContextSetLineCap(context, .Round)
-        CGContextSetLineWidth(context, brush)
+        CGContextSetLineWidth(context, width)
         
         CGContextSetRGBStrokeColor(context, red, green, blue, opacity)
         CGContextMoveToPoint(context, 45.0, 45.0)

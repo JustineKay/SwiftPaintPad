@@ -21,10 +21,29 @@ class SketchPadViewController: UIViewController {
     var opacity: CGFloat = 1.0
     var swiped = false
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+    let defaults = NSUserDefaults.standardUserDefaults()
+    let mainImageKey = "mainImage"
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        if defaults.valueForKey(mainImageKey) != nil {
+            let image : UIImage = UIImage(data: (defaults.valueForKey(mainImageKey) as? NSData)!)!
+            mainImageView.image = image
+        }
+        
+        updateBrushSettings()
+    }
+    
+    func updateBrushSettings() {
+        if defaults.boolForKey("saved") {
+            //TODO: set all brush setting to saved settings
+            brushWidth = CGFloat(defaults.floatForKey(SettingsViewController.Settings.WidthKey))
+            opacity = CGFloat(defaults.floatForKey(SettingsViewController.Settings.OpacityKey))
+            red = CGFloat(defaults.floatForKey(SettingsViewController.Settings.RedKey))
+            green = CGFloat(defaults.floatForKey(SettingsViewController.Settings.GreenKey))
+            blue = CGFloat(defaults.floatForKey(SettingsViewController.Settings.BlueKey))
+            
+        }
     }
     
     //MARK: - Actions
@@ -53,9 +72,11 @@ class SketchPadViewController: UIViewController {
         }
         
         UIGraphicsBeginImageContext(mainImageView.frame.size)
-        mainImageView.image?.drawInRect(CGRect(x: 0, y: 0, width: view.frame.size.width, height: view.frame.size.height), blendMode: .Normal, alpha: opacity)
+        mainImageView.image?.drawInRect(CGRect(x: 0, y: 0, width: view.frame.size.width, height: view.frame.size.height), blendMode: .Normal, alpha: 1.0)
         tempImageView.image?.drawInRect(CGRect(x: 0, y:0, width: view.frame.size.width, height: view.frame.size.height), blendMode: .Normal, alpha: opacity)
         mainImageView.image = UIGraphicsGetImageFromCurrentImageContext()
+        let imageData: NSData = UIImagePNGRepresentation(mainImageView.image!)!
+        defaults.setValue(imageData, forKey: mainImageKey)
         UIGraphicsEndImageContext()
         
         tempImageView.image = nil
@@ -83,13 +104,4 @@ class SketchPadViewController: UIViewController {
         
     }
     
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
- 
-
 }
