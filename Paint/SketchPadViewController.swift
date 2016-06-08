@@ -24,6 +24,12 @@ class SketchPadViewController: UIViewController {
     let defaults = NSUserDefaults.standardUserDefaults()
     let mainImageKey = "mainImage"
     
+    override func viewDidLoad()
+    {
+        super.viewDidLoad()
+        
+    }
+    
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         if defaults.valueForKey(mainImageKey) != nil {
@@ -44,6 +50,13 @@ class SketchPadViewController: UIViewController {
             blue = CGFloat(defaults.floatForKey(SettingsViewController.Settings.BlueKey))
             
         }
+    }
+    
+    @IBAction func clearButton(sender: UIBarButtonItem)
+    {
+        mainImageView.image = nil
+        tempImageView.image = nil
+        defaults.setValue(nil, forKey: mainImageKey)
     }
     
     //MARK: - Actions

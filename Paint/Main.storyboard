@@ -38,7 +38,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Sketch Pad" id="cg6-KS-xwO">
-                        <barButtonItem key="rightBarButtonItem" title="Clear" id="dCO-qn-VJd"/>
+                        <barButtonItem key="rightBarButtonItem" title="Clear" id="dCO-qn-VJd">
+                            <connections>
+                                <action selector="clearButton:" destination="Xai-aS-1d3" id="onK-eU-Arw"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="mainImageView" destination="tZK-kh-JY7" id="DTp-1r-2Hn"/>
