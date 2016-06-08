@@ -40,7 +40,7 @@
                     <navigationItem key="navigationItem" title="Sketch Pad" id="cg6-KS-xwO">
                         <barButtonItem key="rightBarButtonItem" title="Clear" id="dCO-qn-VJd">
                             <connections>
-                                <action selector="clearButton:" destination="Xai-aS-1d3" id="onK-eU-Arw"/>
+                                <action selector="clearSketchPad:" destination="Xai-aS-1d3" id="vLB-Y5-6eF"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -165,7 +165,7 @@
                                         <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="15"/>
                                         <state key="normal" title="Reset"/>
                                         <connections>
-                                            <action selector="resetButtonTapped:" destination="3Jh-Bg-z25" eventType="touchUpInside" id="x6d-nc-ZA8"/>
+                                            <action selector="resetToDefaultSettings:" destination="3Jh-Bg-z25" eventType="touchUpInside" id="wtj-E2-9PG"/>
                                         </connections>
                                     </button>
                                 </subviews>

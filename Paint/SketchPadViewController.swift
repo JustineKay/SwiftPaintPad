@@ -35,7 +35,7 @@ class SketchPadViewController: UIViewController {
         Settings.updateSettings(&width, opacity: &opacity, red: &red, green: &green, blue: &blue)
     }
     
-    @IBAction func clearButton(sender: UIBarButtonItem)
+    @IBAction func clearSketchPad(sender: UIBarButtonItem)
     {
         mainImageView.image = nil
         tempImageView.image = nil

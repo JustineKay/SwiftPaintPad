@@ -37,7 +37,7 @@ class SettingsViewController: UIViewController
         drawPreview()
     }
     
-    @IBAction func resetButtonTapped(sender: UIButton)
+    @IBAction func resetToDefaultSettings(sender: UIButton)
     {
         Settings.DefaultSettings.set(&width, opacity: &opacity, red: &red, green: &green, blue: &blue)
         drawPreview()
