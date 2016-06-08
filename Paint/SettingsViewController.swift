@@ -20,43 +20,24 @@ class SettingsViewController: UIViewController
     @IBOutlet weak var greenSlider: UISlider!
     @IBOutlet weak var blueSlider: UISlider!
     
-    var width: CGFloat = 10.0
-    var opacity: CGFloat = 1.0
-    var red: CGFloat = 0.0
-    var green: CGFloat = 0.0
-    var blue: CGFloat = 0.0
+    var width: CGFloat = Constant.defaultSettings.width
+    var opacity: CGFloat = Constant.defaultSettings.opacity
+    var red: CGFloat = Constant.defaultSettings.red
+    var green: CGFloat = Constant.defaultSettings.green
+    var blue: CGFloat = Constant.defaultSettings.blue
     
-    let defaults = NSUserDefaults.standardUserDefaults()
-    
-    struct Settings {
-        static let WidthKey = "width"
-        static let OpacityKey = "opacity"
-        static let RedKey = "red"
-        static let GreenKey = "green"
-        static let BlueKey = "blue"
-        
-        static let SettingsSavedKey = "saved"
-    }
-    
-    func saveSettings() {
-        defaults.setFloat(Float(width), forKey: Settings.WidthKey)
-        defaults.setFloat(Float(opacity), forKey: Settings.OpacityKey)
-        defaults.setFloat(Float(red), forKey: Settings.RedKey)
-        defaults.setFloat(Float(green), forKey: Settings.GreenKey)
-        defaults.setFloat(Float(blue), forKey: Settings.BlueKey)
-        defaults.setBool(true, forKey: Settings.SettingsSavedKey)
-    }
-    
+    private let defaults = NSUserDefaults.standardUserDefaults()
+
     override func viewWillAppear(animated: Bool)
     {
         super.viewWillAppear(animated)
         
-        if defaults.boolForKey(Settings.SettingsSavedKey) {
-            width = CGFloat(defaults.floatForKey(Settings.WidthKey))
-            opacity = CGFloat(defaults.floatForKey(Settings.OpacityKey))
-            red = CGFloat(defaults.floatForKey(Settings.RedKey))
-            green = CGFloat(defaults.floatForKey(Settings.GreenKey))
-            blue = CGFloat(defaults.floatForKey(Settings.BlueKey))
+        if defaults.boolForKey(Constant.Settings.SettingsSavedKey) {
+            width = CGFloat(defaults.floatForKey(Constant.Settings.WidthKey))
+            opacity = CGFloat(defaults.floatForKey(Constant.Settings.OpacityKey))
+            red = CGFloat(defaults.floatForKey(Constant.Settings.RedKey))
+            green = CGFloat(defaults.floatForKey(Constant.Settings.GreenKey))
+            blue = CGFloat(defaults.floatForKey(Constant.Settings.BlueKey))
         }
         
         widthSlider.value = Float(width)
@@ -72,6 +53,17 @@ class SettingsViewController: UIViewController
     {
         saveSettings()
     }
+    
+    
+    func saveSettings() {
+        defaults.setFloat(Float(width), forKey: Constant.Settings.WidthKey)
+        defaults.setFloat(Float(opacity), forKey: Constant.Settings.OpacityKey)
+        defaults.setFloat(Float(red), forKey: Constant.Settings.RedKey)
+        defaults.setFloat(Float(green), forKey: Constant.Settings.GreenKey)
+        defaults.setFloat(Float(blue), forKey: Constant.Settings.BlueKey)
+        defaults.setBool(true, forKey: Constant.Settings.SettingsSavedKey)
+    }
+    
     
     @IBAction func sliderChanged(sender: UISlider)
     {

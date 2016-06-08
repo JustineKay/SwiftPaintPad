@@ -13,16 +13,16 @@ class SketchPadViewController: UIViewController {
     @IBOutlet weak var mainImageView: UIImageView!
     @IBOutlet weak var tempImageView: UIImageView!
     
+    var width: CGFloat = Constant.defaultSettings.width
+    var opacity: CGFloat = Constant.defaultSettings.opacity
+    var red: CGFloat = Constant.defaultSettings.red
+    var green: CGFloat = Constant.defaultSettings.green
+    var blue: CGFloat = Constant.defaultSettings.blue
     var lastPoint = CGPoint.zero
-    var red: CGFloat = 0.0
-    var green: CGFloat = 0.0
-    var blue: CGFloat = 0.0
-    var brushWidth: CGFloat = 10.0
-    var opacity: CGFloat = 1.0
     var swiped = false
     
-    let defaults = NSUserDefaults.standardUserDefaults()
-    let mainImageKey = "mainImage"
+    private let defaults = NSUserDefaults.standardUserDefaults()
+    private let mainImageKey = "mainImage"
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
@@ -35,13 +35,12 @@ class SketchPadViewController: UIViewController {
     }
     
     func updateBrushSettings() {
-        if defaults.boolForKey(SettingsViewController.Settings.SettingsSavedKey) {
-            //TODO: set all brush setting to saved settings
-            brushWidth = CGFloat(defaults.floatForKey(SettingsViewController.Settings.WidthKey))
-            opacity = CGFloat(defaults.floatForKey(SettingsViewController.Settings.OpacityKey))
-            red = CGFloat(defaults.floatForKey(SettingsViewController.Settings.RedKey))
-            green = CGFloat(defaults.floatForKey(SettingsViewController.Settings.GreenKey))
-            blue = CGFloat(defaults.floatForKey(SettingsViewController.Settings.BlueKey))    
+        if defaults.boolForKey(Constant.Settings.SettingsSavedKey) {
+            width = CGFloat(defaults.floatForKey(Constant.Settings.WidthKey))
+            opacity = CGFloat(defaults.floatForKey(Constant.Settings.OpacityKey))
+            red = CGFloat(defaults.floatForKey(Constant.Settings.RedKey))
+            green = CGFloat(defaults.floatForKey(Constant.Settings.GreenKey))
+            blue = CGFloat(defaults.floatForKey(Constant.Settings.BlueKey))
         }
     }
     
@@ -98,7 +97,7 @@ class SketchPadViewController: UIViewController {
         CGContextAddLineToPoint(context, toPoint.x, toPoint.y)
         
         CGContextSetLineCap(context, .Round)
-        CGContextSetLineWidth(context, brushWidth)
+        CGContextSetLineWidth(context, width)
         CGContextSetRGBStrokeColor(context, red, green, blue, 1.0)
         CGContextSetBlendMode(context, .Normal)
         
