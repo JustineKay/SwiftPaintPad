@@ -13,11 +13,11 @@ class SketchPadViewController: UIViewController {
     @IBOutlet weak var mainImageView: UIImageView!
     @IBOutlet weak var tempImageView: UIImageView!
     
-    var width: CGFloat = Settings.DefaultSettings.width
-    var opacity: CGFloat = Settings.DefaultSettings.opacity
-    var red: CGFloat = Settings.DefaultSettings.red
-    var green: CGFloat = Settings.DefaultSettings.green
-    var blue: CGFloat = Settings.DefaultSettings.blue
+    var width = CGFloat()
+    var opacity = CGFloat()
+    var red = CGFloat()
+    var green = CGFloat()
+    var blue = CGFloat()
     var lastPoint = CGPoint.zero
     var swiped = false
     
@@ -26,22 +26,13 @@ class SketchPadViewController: UIViewController {
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
+        
         if defaults.valueForKey(mainImageKey) != nil {
             let image : UIImage = UIImage(data: (defaults.valueForKey(mainImageKey) as? NSData)!)!
             mainImageView.image = image
         }
         
-        updateBrushSettings()
-    }
-    
-    func updateBrushSettings() {
-        if defaults.boolForKey(Settings.SavedSettings.SavedKey) {
-            width = CGFloat(defaults.floatForKey(Settings.SavedSettings.WidthKey))
-            opacity = CGFloat(defaults.floatForKey(Settings.SavedSettings.OpacityKey))
-            red = CGFloat(defaults.floatForKey(Settings.SavedSettings.RedKey))
-            green = CGFloat(defaults.floatForKey(Settings.SavedSettings.GreenKey))
-            blue = CGFloat(defaults.floatForKey(Settings.SavedSettings.BlueKey))
-        }
+        Settings.updateSettings(&width, opacity: &opacity, red: &red, green: &green, blue: &blue)
     }
     
     @IBAction func clearButton(sender: UIBarButtonItem)

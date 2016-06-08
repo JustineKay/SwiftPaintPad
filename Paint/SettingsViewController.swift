@@ -32,34 +32,16 @@ class SettingsViewController: UIViewController
     {
         super.viewWillAppear(animated)
         
-        if defaults.boolForKey(Settings.SavedSettings.SavedKey) {
-            width = CGFloat(defaults.floatForKey(Settings.SavedSettings.WidthKey))
-            opacity = CGFloat(defaults.floatForKey(Settings.SavedSettings.OpacityKey))
-            red = CGFloat(defaults.floatForKey(Settings.SavedSettings.RedKey))
-            green = CGFloat(defaults.floatForKey(Settings.SavedSettings.GreenKey))
-            blue = CGFloat(defaults.floatForKey(Settings.SavedSettings.BlueKey))
-        } else {
-            defaultSettings()
-        }
-        
+        Settings.updateSettings(&width, opacity: &opacity, red: &red, green: &green, blue: &blue)
         updateSliders()
         drawPreview()
     }
     
     @IBAction func resetButtonTapped(sender: UIButton)
     {
-        defaultSettings()
+        Settings.DefaultSettings.set(&width, opacity: &opacity, red: &red, green: &green, blue: &blue)
         drawPreview()
         updateSliders()
-    }
-    
-    func defaultSettings()
-    {
-        width = Settings.DefaultSettings.width
-        opacity = Settings.DefaultSettings.opacity
-        red = Settings.DefaultSettings.red
-        green = Settings.DefaultSettings.green
-        blue = Settings.DefaultSettings.blue
     }
     
     func updateSliders()
