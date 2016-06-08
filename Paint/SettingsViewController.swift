@@ -34,6 +34,8 @@ class SettingsViewController: UIViewController
         static let RedKey = "red"
         static let GreenKey = "green"
         static let BlueKey = "blue"
+        
+        static let SettingsSavedKey = "saved"
     }
     
     func saveSettings() {
@@ -60,7 +62,7 @@ class SettingsViewController: UIViewController
     @IBAction func selectButtonTapped(sender: AnyObject)
     {
         saveSettings()
-        defaults.setBool(true, forKey: "saved")
+        defaults.setBool(true, forKey: Settings.SettingsSavedKey)
     }
     
     @IBAction func sliderChanged(sender: UISlider)

@@ -24,12 +24,6 @@ class SketchPadViewController: UIViewController {
     let defaults = NSUserDefaults.standardUserDefaults()
     let mainImageKey = "mainImage"
     
-    override func viewDidLoad()
-    {
-        super.viewDidLoad()
-        
-    }
-    
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         if defaults.valueForKey(mainImageKey) != nil {
@@ -41,14 +35,13 @@ class SketchPadViewController: UIViewController {
     }
     
     func updateBrushSettings() {
-        if defaults.boolForKey("saved") {
+        if defaults.boolForKey(SettingsViewController.Settings.SettingsSavedKey) {
             //TODO: set all brush setting to saved settings
             brushWidth = CGFloat(defaults.floatForKey(SettingsViewController.Settings.WidthKey))
             opacity = CGFloat(defaults.floatForKey(SettingsViewController.Settings.OpacityKey))
             red = CGFloat(defaults.floatForKey(SettingsViewController.Settings.RedKey))
             green = CGFloat(defaults.floatForKey(SettingsViewController.Settings.GreenKey))
-            blue = CGFloat(defaults.floatForKey(SettingsViewController.Settings.BlueKey))
-            
+            blue = CGFloat(defaults.floatForKey(SettingsViewController.Settings.BlueKey))    
         }
     }
     
@@ -88,7 +81,7 @@ class SketchPadViewController: UIViewController {
         mainImageView.image?.drawInRect(CGRect(x: 0, y: 0, width: view.frame.size.width, height: view.frame.size.height), blendMode: .Normal, alpha: 1.0)
         tempImageView.image?.drawInRect(CGRect(x: 0, y:0, width: view.frame.size.width, height: view.frame.size.height), blendMode: .Normal, alpha: opacity)
         mainImageView.image = UIGraphicsGetImageFromCurrentImageContext()
-        let imageData: NSData = UIImagePNGRepresentation(mainImageView.image!)!
+        let imageData: NSData = UIImageJPEGRepresentation(mainImageView.image!, 1.0)!
         defaults.setValue(imageData, forKey: mainImageKey)
         UIGraphicsEndImageContext()
         
