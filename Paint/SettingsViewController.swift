@@ -44,11 +44,20 @@ class SettingsViewController: UIViewController
         defaults.setFloat(Float(red), forKey: Settings.RedKey)
         defaults.setFloat(Float(green), forKey: Settings.GreenKey)
         defaults.setFloat(Float(blue), forKey: Settings.BlueKey)
+        defaults.setBool(true, forKey: Settings.SettingsSavedKey)
     }
     
     override func viewWillAppear(animated: Bool)
     {
         super.viewWillAppear(animated)
+        
+        if defaults.boolForKey(Settings.SettingsSavedKey) {
+            width = CGFloat(defaults.floatForKey(Settings.WidthKey))
+            opacity = CGFloat(defaults.floatForKey(Settings.OpacityKey))
+            red = CGFloat(defaults.floatForKey(Settings.RedKey))
+            green = CGFloat(defaults.floatForKey(Settings.GreenKey))
+            blue = CGFloat(defaults.floatForKey(Settings.BlueKey))
+        }
         
         widthSlider.value = Float(width)
         opacitySlider.value = Float(opacity)
@@ -62,7 +71,6 @@ class SettingsViewController: UIViewController
     @IBAction func selectButtonTapped(sender: AnyObject)
     {
         saveSettings()
-        defaults.setBool(true, forKey: Settings.SettingsSavedKey)
     }
     
     @IBAction func sliderChanged(sender: UISlider)
