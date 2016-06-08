@@ -13,11 +13,11 @@ class SketchPadViewController: UIViewController {
     @IBOutlet weak var mainImageView: UIImageView!
     @IBOutlet weak var tempImageView: UIImageView!
     
-    var width: CGFloat = Constant.defaultSettings.width
-    var opacity: CGFloat = Constant.defaultSettings.opacity
-    var red: CGFloat = Constant.defaultSettings.red
-    var green: CGFloat = Constant.defaultSettings.green
-    var blue: CGFloat = Constant.defaultSettings.blue
+    var width: CGFloat = Settings.DefaultSettings.width
+    var opacity: CGFloat = Settings.DefaultSettings.opacity
+    var red: CGFloat = Settings.DefaultSettings.red
+    var green: CGFloat = Settings.DefaultSettings.green
+    var blue: CGFloat = Settings.DefaultSettings.blue
     var lastPoint = CGPoint.zero
     var swiped = false
     
@@ -35,12 +35,12 @@ class SketchPadViewController: UIViewController {
     }
     
     func updateBrushSettings() {
-        if defaults.boolForKey(Constant.Settings.SettingsSavedKey) {
-            width = CGFloat(defaults.floatForKey(Constant.Settings.WidthKey))
-            opacity = CGFloat(defaults.floatForKey(Constant.Settings.OpacityKey))
-            red = CGFloat(defaults.floatForKey(Constant.Settings.RedKey))
-            green = CGFloat(defaults.floatForKey(Constant.Settings.GreenKey))
-            blue = CGFloat(defaults.floatForKey(Constant.Settings.BlueKey))
+        if defaults.boolForKey(Settings.SavedSettings.SavedKey) {
+            width = CGFloat(defaults.floatForKey(Settings.SavedSettings.WidthKey))
+            opacity = CGFloat(defaults.floatForKey(Settings.SavedSettings.OpacityKey))
+            red = CGFloat(defaults.floatForKey(Settings.SavedSettings.RedKey))
+            green = CGFloat(defaults.floatForKey(Settings.SavedSettings.GreenKey))
+            blue = CGFloat(defaults.floatForKey(Settings.SavedSettings.BlueKey))
         }
     }
     

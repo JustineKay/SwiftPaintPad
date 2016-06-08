@@ -9,19 +9,19 @@
 import Foundation
 import UIKit
 
-class Constant
+class Settings
 {
     
-    struct Settings {
+    struct SavedSettings {
         static let WidthKey = "width"
         static let OpacityKey = "opacity"
         static let RedKey = "red"
         static let GreenKey = "green"
         static let BlueKey = "blue"
-        static let SettingsSavedKey = "saved"
+        static let SavedKey = "saved"
     }
     
-    struct defaultSettings {
+    struct DefaultSettings {
         static let width: CGFloat = 10.0
         static let opacity: CGFloat = 1.0
         static let red: CGFloat = 0.0

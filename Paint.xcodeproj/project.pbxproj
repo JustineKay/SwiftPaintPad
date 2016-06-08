@@ -10,7 +10,7 @@
 		8256F3481D0735A90075778A /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8256F3471D0735A90075778A /* SettingsViewController.swift */; };
 		8256F34A1D0735D40075778A /* SketchPadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8256F3491D0735D40075778A /* SketchPadViewController.swift */; };
 		8256F34C1D075D720075778A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8256F34B1D075D720075778A /* Main.storyboard */; };
-		8256F3521D089E570075778A /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8256F3511D089E570075778A /* Constant.swift */; };
+		8256F3521D089E570075778A /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8256F3511D089E570075778A /* Settings.swift */; };
 		82A574DA1D0603D60012A099 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82A574D91D0603D60012A099 /* AppDelegate.swift */; };
 		82A574E11D0603D60012A099 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 82A574E01D0603D60012A099 /* Assets.xcassets */; };
 		82A574E41D0603D60012A099 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 82A574E21D0603D60012A099 /* LaunchScreen.storyboard */; };
@@ -39,7 +39,7 @@
 		8256F3471D0735A90075778A /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		8256F3491D0735D40075778A /* SketchPadViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SketchPadViewController.swift; sourceTree = "<group>"; };
 		8256F34B1D075D720075778A /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
-		8256F3511D089E570075778A /* Constant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
+		8256F3511D089E570075778A /* Settings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		82A574D61D0603D60012A099 /* Paint.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Paint.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		82A574D91D0603D60012A099 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		82A574E01D0603D60012A099 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -102,7 +102,7 @@
 			isa = PBXGroup;
 			children = (
 				82A574D91D0603D60012A099 /* AppDelegate.swift */,
-				8256F3511D089E570075778A /* Constant.swift */,
+				8256F3511D089E570075778A /* Settings.swift */,
 				8256F3471D0735A90075778A /* SettingsViewController.swift */,
 				8256F3491D0735D40075778A /* SketchPadViewController.swift */,
 				8256F34B1D075D720075778A /* Main.storyboard */,
@@ -266,7 +266,7 @@
 				8256F34A1D0735D40075778A /* SketchPadViewController.swift in Sources */,
 				82A574DA1D0603D60012A099 /* AppDelegate.swift in Sources */,
 				8256F3481D0735A90075778A /* SettingsViewController.swift in Sources */,
-				8256F3521D089E570075778A /* Constant.swift in Sources */,
+				8256F3521D089E570075778A /* Settings.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -20,11 +20,11 @@ class SettingsViewController: UIViewController
     @IBOutlet weak var greenSlider: UISlider!
     @IBOutlet weak var blueSlider: UISlider!
     
-    var width: CGFloat = Constant.defaultSettings.width
-    var opacity: CGFloat = Constant.defaultSettings.opacity
-    var red: CGFloat = Constant.defaultSettings.red
-    var green: CGFloat = Constant.defaultSettings.green
-    var blue: CGFloat = Constant.defaultSettings.blue
+    var width = CGFloat()
+    var opacity = CGFloat()
+    var red = CGFloat()
+    var green = CGFloat()
+    var blue = CGFloat()
     
     private let defaults = NSUserDefaults.standardUserDefaults()
 
@@ -32,21 +32,43 @@ class SettingsViewController: UIViewController
     {
         super.viewWillAppear(animated)
         
-        if defaults.boolForKey(Constant.Settings.SettingsSavedKey) {
-            width = CGFloat(defaults.floatForKey(Constant.Settings.WidthKey))
-            opacity = CGFloat(defaults.floatForKey(Constant.Settings.OpacityKey))
-            red = CGFloat(defaults.floatForKey(Constant.Settings.RedKey))
-            green = CGFloat(defaults.floatForKey(Constant.Settings.GreenKey))
-            blue = CGFloat(defaults.floatForKey(Constant.Settings.BlueKey))
+        if defaults.boolForKey(Settings.SavedSettings.SavedKey) {
+            width = CGFloat(defaults.floatForKey(Settings.SavedSettings.WidthKey))
+            opacity = CGFloat(defaults.floatForKey(Settings.SavedSettings.OpacityKey))
+            red = CGFloat(defaults.floatForKey(Settings.SavedSettings.RedKey))
+            green = CGFloat(defaults.floatForKey(Settings.SavedSettings.GreenKey))
+            blue = CGFloat(defaults.floatForKey(Settings.SavedSettings.BlueKey))
+        } else {
+            defaultSettings()
         }
         
+        updateSliders()
+        drawPreview()
+    }
+    
+    @IBAction func resetButtonTapped(sender: UIButton)
+    {
+        defaultSettings()
+        drawPreview()
+        updateSliders()
+    }
+    
+    func defaultSettings()
+    {
+        width = Settings.DefaultSettings.width
+        opacity = Settings.DefaultSettings.opacity
+        red = Settings.DefaultSettings.red
+        green = Settings.DefaultSettings.green
+        blue = Settings.DefaultSettings.blue
+    }
+    
+    func updateSliders()
+    {
         widthSlider.value = Float(width)
         opacitySlider.value = Float(opacity)
         redSlider.value = Float(red * 255.0)
         greenSlider.value = Float(green * 255.0)
         blueSlider.value = Float(blue * 255.0)
-        
-        drawPreview()
     }
     
     @IBAction func selectButtonTapped(sender: AnyObject)
@@ -54,16 +76,14 @@ class SettingsViewController: UIViewController
         saveSettings()
     }
     
-    
     func saveSettings() {
-        defaults.setFloat(Float(width), forKey: Constant.Settings.WidthKey)
-        defaults.setFloat(Float(opacity), forKey: Constant.Settings.OpacityKey)
-        defaults.setFloat(Float(red), forKey: Constant.Settings.RedKey)
-        defaults.setFloat(Float(green), forKey: Constant.Settings.GreenKey)
-        defaults.setFloat(Float(blue), forKey: Constant.Settings.BlueKey)
-        defaults.setBool(true, forKey: Constant.Settings.SettingsSavedKey)
+        defaults.setFloat(Float(width), forKey: Settings.SavedSettings.WidthKey)
+        defaults.setFloat(Float(opacity), forKey: Settings.SavedSettings.OpacityKey)
+        defaults.setFloat(Float(red), forKey: Settings.SavedSettings.RedKey)
+        defaults.setFloat(Float(green), forKey: Settings.SavedSettings.GreenKey)
+        defaults.setFloat(Float(blue), forKey: Settings.SavedSettings.BlueKey)
+        defaults.setBool(true, forKey: Settings.SavedSettings.SavedKey)
     }
-    
     
     @IBAction func sliderChanged(sender: UISlider)
     {
