@@ -219,7 +219,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Ink up!" id="Fci-cd-2Vu">
-                        <barButtonItem key="rightBarButtonItem" title="Cancel" id="H2Z-kb-lAe"/>
+                        <barButtonItem key="rightBarButtonItem" title="Cancel" id="H2Z-kb-lAe">
+                            <connections>
+                                <segue destination="wTW-aR-tCx" kind="showDetail" identifier="show SketchPadWithUnsavedSettings" action="showViewController:sender:" id="B8h-Fx-yBI"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="blueSlider" destination="9fd-6o-xBg" id="2Dm-gA-8bU"/>
@@ -267,6 +271,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="jX2-Gv-R67"/>
+        <segue reference="B8h-Fx-yBI"/>
     </inferredMetricsTieBreakers>
 </document>
