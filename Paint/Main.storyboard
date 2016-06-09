@@ -123,13 +123,13 @@
                                     <action selector="sliderChanged:" destination="3Jh-Bg-z25" eventType="valueChanged" id="7ip-1d-GWP"/>
                                 </connections>
                             </slider>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g7S-Rq-ajX">
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g7S-Rq-ajX">
                                 <rect key="frame" x="571" y="316" width="9" height="23"/>
                                 <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kv3-ae-EwK">
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kv3-ae-EwK">
                                 <rect key="frame" x="571" y="385" width="9" height="24"/>
                                 <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -141,10 +141,10 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yBC-QL-aFI">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yBC-QL-aFI" userLabel="Top Background View">
                                 <rect key="frame" x="20" y="72" width="560" height="236"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="H4Z-ls-WYo">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="H4Z-ls-WYo">
                                         <rect key="frame" x="216" y="54" width="128" height="128"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="128" id="Xyv-IP-8PL"/>
@@ -168,6 +168,17 @@
                                             <action selector="resetToDefaultSettings:" destination="3Jh-Bg-z25" eventType="touchUpInside" id="wtj-E2-9PG"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XYh-Vj-YnK">
+                                        <rect key="frame" x="504" y="187" width="48" height="41"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="48" id="SjZ-hf-Gxv"/>
+                                            <constraint firstAttribute="height" constant="41" id="UMe-p3-1AQ"/>
+                                        </constraints>
+                                        <state key="normal" image="magicEraser"/>
+                                        <connections>
+                                            <action selector="toggleEraser:" destination="3Jh-Bg-z25" eventType="touchUpInside" id="huy-eu-m35"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -175,6 +186,7 @@
                                     <constraint firstItem="JRz-JY-pd5" firstAttribute="leading" secondItem="H4Z-ls-WYo" secondAttribute="trailing" constant="8" symbolic="YES" id="7V1-pc-WOn"/>
                                     <constraint firstItem="H4Z-ls-WYo" firstAttribute="centerX" secondItem="yBC-QL-aFI" secondAttribute="centerX" id="Dgi-Jl-yE1"/>
                                     <constraint firstItem="ND1-T0-phy" firstAttribute="leading" secondItem="H4Z-ls-WYo" secondAttribute="trailing" constant="8" symbolic="YES" id="END-Ed-BMc"/>
+                                    <constraint firstAttribute="bottom" secondItem="XYh-Vj-YnK" secondAttribute="bottom" constant="8" id="QzQ-10-DIT"/>
                                     <constraint firstItem="H4Z-ls-WYo" firstAttribute="centerY" secondItem="yBC-QL-aFI" secondAttribute="centerY" id="XIu-W8-Pn6"/>
                                     <constraint firstItem="ND1-T0-phy" firstAttribute="baseline" secondItem="H4Z-ls-WYo" secondAttribute="baseline" id="bsP-5g-T2x"/>
                                     <constraint firstItem="ND1-T0-phy" firstAttribute="top" secondItem="JRz-JY-pd5" secondAttribute="bottom" constant="16" id="eaQ-eD-gVF"/>
@@ -195,6 +207,7 @@
                             <constraint firstItem="xb7-pO-vvv" firstAttribute="leading" secondItem="P81-HD-CWs" secondAttribute="leadingMargin" id="5Bb-Jt-eIx"/>
                             <constraint firstAttribute="trailingMargin" secondItem="KWJ-Ev-Why" secondAttribute="trailing" id="DaD-5d-5fE"/>
                             <constraint firstItem="nau-2j-Da9" firstAttribute="top" secondItem="9fd-6o-xBg" secondAttribute="bottom" constant="8" symbolic="YES" id="Dip-ra-pKc"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="XYh-Vj-YnK" secondAttribute="trailing" constant="8" id="Ez8-WZ-cDI"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Kv3-ae-EwK" secondAttribute="trailing" id="GP1-zc-ueq"/>
                             <constraint firstItem="Mdi-Eu-Ta3" firstAttribute="top" secondItem="xEX-xS-Ejj" secondAttribute="bottom" constant="8" id="HL6-Zq-l5I"/>
                             <constraint firstItem="nPd-LZ-Zyy" firstAttribute="top" secondItem="xb7-pO-vvv" secondAttribute="bottom" constant="8" symbolic="YES" id="HW6-cL-tkm"/>
@@ -273,6 +286,9 @@
             <point key="canvasLocation" x="944" y="1287"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="magicEraser" width="511" height="431"/>
+    </resources>
     <inferredMetricsTieBreakers>
         <segue reference="B8h-Fx-yBI"/>
     </inferredMetricsTieBreakers>

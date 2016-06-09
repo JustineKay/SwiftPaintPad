@@ -26,6 +26,8 @@ class SettingsViewController: UIViewController
     var green = CGFloat()
     var blue = CGFloat()
     
+    var eraserSelected = false
+    
     private let defaults = NSUserDefaults.standardUserDefaults()
 
     override func viewWillAppear(animated: Bool)
@@ -66,6 +68,17 @@ class SettingsViewController: UIViewController
         defaults.setFloat(Float(blue), forKey: Settings.SavedSettings.BlueKey)
         defaults.setBool(true, forKey: Settings.SavedSettings.SavedKey)
     }
+    @IBAction func toggleEraser(sender: UIButton)
+    {
+        if !eraserSelected {
+            previewImageView.image = UIImage(named: "eraser")
+            eraserSelected = true
+        } else {
+            drawPreview()
+            eraserSelected = false
+        }
+        
+    }
     
     @IBAction func sliderChanged(sender: UISlider)
     {
@@ -91,8 +104,8 @@ class SettingsViewController: UIViewController
         CGContextSetLineWidth(context, width)
         
         CGContextSetRGBStrokeColor(context, red, green, blue, opacity)
-        CGContextMoveToPoint(context, 45.0, 45.0)
-        CGContextAddLineToPoint(context, 45.0, 45.0)
+        CGContextMoveToPoint(context, 64.0, 64.0)
+        CGContextAddLineToPoint(context, 64.0, 64.0)
         CGContextStrokePath(context)
         previewImageView.image = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
