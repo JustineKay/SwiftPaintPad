@@ -68,8 +68,8 @@ class SketchPadViewController: UIViewController {
         }
         
         UIGraphicsBeginImageContext(mainImageView.frame.size)
-        mainImageView.image?.drawInRect(CGRect(x: 0, y: 0, width: view.frame.size.width, height: view.frame.size.height), blendMode: .Normal, alpha: 1.0)
-        tempImageView.image?.drawInRect(CGRect(x: 0, y:0, width: view.frame.size.width, height: view.frame.size.height), blendMode: .Normal, alpha: opacity)
+        mainImageView.layer.renderInContext(UIGraphicsGetCurrentContext()!)
+        tempImageView.layer.renderInContext(UIGraphicsGetCurrentContext()!)
         mainImageView.image = UIGraphicsGetImageFromCurrentImageContext()
         let imageData: NSData = UIImageJPEGRepresentation(mainImageView.image!, 1.0)!
         defaults.setValue(imageData, forKey: mainImageKey)
