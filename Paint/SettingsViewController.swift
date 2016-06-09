@@ -20,6 +20,11 @@ class SettingsViewController: UIViewController
     @IBOutlet weak var greenSlider: UISlider!
     @IBOutlet weak var blueSlider: UISlider!
     
+    @IBOutlet weak var selectButton: UIButton!
+    
+    @IBOutlet weak var rgbLabel: UILabel!
+    @IBOutlet weak var whiteLabel: UILabel!
+    
     private var width = CGFloat()
     private var opacity = CGFloat()
     private var red = CGFloat()
@@ -28,8 +33,16 @@ class SettingsViewController: UIViewController
     
     private var eraserSelected = false
     private let eraserImageName = "eraser"
+    private let selectEraser = "Eraser"
+    private let select = "Select"
     
     private let defaults = NSUserDefaults.standardUserDefaults()
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        whiteLabel.hidden = true
+    }
 
     override func viewWillAppear(animated: Bool)
     {
@@ -39,16 +52,18 @@ class SettingsViewController: UIViewController
         
         if defaults.boolForKey(Settings.EraserSettings.eraserSavedKey) {
             eraserSelected = true
-            previewImageView.image = UIImage(named: eraserImageName)
-        } else {
+            toggleSelectButtonText()
             drawPreview()
+        } else {
             eraserSelected = false
+            drawPreview()
         }
+        
         updateSliders()
         
     }
     
-    @IBAction func resetToDefaultSettings(sender: UIButton)
+        @IBAction func resetToDefaultSettings(sender: UIButton)
     {
         Settings.DefaultSettings.set(&width, opacity: &opacity, red: &red, green: &green, blue: &blue)
         drawPreview()
@@ -88,11 +103,41 @@ class SettingsViewController: UIViewController
     
     @IBAction func toggleEraser(sender: UIButton)
     {
+        togglePreview()
+        toggleSelectButtonText()
+        toggleRGBSliders()
+        drawPreview()
+    }
+    
+    private func toggleSelectButtonText()
+    {
+        if eraserSelected {
+            selectButton.titleLabel!.text = selectEraser
+        } else {
+            selectButton.titleLabel!.text = select
+        }
+    }
+    
+    private func toggleRGBSliders()
+    {
+        if eraserSelected {
+            rgbLabel.hidden = true
+            redSlider.hidden = true
+            greenSlider.hidden = true
+            blueSlider.hidden = true
+        } else {
+            rgbLabel.hidden = false
+            redSlider.hidden = false
+            greenSlider.hidden = false
+            blueSlider.hidden = false
+        }
+    }
+    
+    private func togglePreview()
+    {
         if !eraserSelected {
-            previewImageView.image = UIImage(named: eraserImageName)
             eraserSelected = true
         } else {
-            drawPreview()
             eraserSelected = false
         }
         
@@ -114,25 +159,26 @@ class SettingsViewController: UIViewController
         drawPreview()
     }
     
-    private func drawPreview() {
+    private func drawPreview()
+    {
         UIGraphicsBeginImageContext(previewImageView.frame.size)
         let context = UIGraphicsGetCurrentContext()
         
         CGContextSetLineCap(context, .Round)
         CGContextSetLineWidth(context, width)
         
-        //TODO - draw eraser image instead of using icon
-//        if defaults.boolForKey(Settings.EraserSettings.eraserSavedKey) {
-//            let path = CGPathCreateMutable()
-//            CGContextSetLineWidth(context, 40);
-//            CGPathAddArc(path, nil, previewImageView.image!.size.width/2, previewImageView.image!.size.height/2, 45, 0*CGFloat(M_PI)/180, 64.0*CGFloat(M_PI)/180.0, true)
-//            CGContextAddPath(context, path)
-//            CGContextStrokePath(context)
-//        } else {
-//            CGContextSetRGBStrokeColor(context, red, green, blue, opacity)
-//        }
+        if eraserSelected {
+            CGContextSetRGBStrokeColor(context, 0, 0, 0, opacity)
+            whiteLabel.hidden = true
+        } else {
+            CGContextSetRGBStrokeColor(context, red, green, blue, opacity)
+            if red == 1.0 && green == 1.0 && blue == 1.0 {
+                whiteLabel.hidden = false
+            } else {
+                whiteLabel.hidden = true
+            }
+        }
         
-        CGContextSetRGBStrokeColor(context, red, green, blue, opacity)
         CGContextMoveToPoint(context, 64.0, 64.0)
         CGContextAddLineToPoint(context, 64.0, 64.0)
         CGContextStrokePath(context)

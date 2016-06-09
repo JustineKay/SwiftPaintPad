@@ -151,7 +151,7 @@
                                             <constraint firstAttribute="width" constant="128" id="sPS-RW-98w"/>
                                         </constraints>
                                     </imageView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JRz-JY-pd5">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="clip" translatesAutoresizingMaskIntoConstraints="NO" id="JRz-JY-pd5">
                                         <rect key="frame" x="352" y="99" width="52" height="38"/>
                                         <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="19"/>
                                         <state key="normal" title="Select"/>
@@ -168,6 +168,12 @@
                                             <action selector="resetToDefaultSettings:" destination="3Jh-Bg-z25" eventType="touchUpInside" id="wtj-E2-9PG"/>
                                         </connections>
                                     </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="White" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JKT-wN-ZiK">
+                                        <rect key="frame" x="258" y="106" width="45" height="24"/>
+                                        <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XYh-Vj-YnK">
                                         <rect key="frame" x="504" y="187" width="48" height="41"/>
                                         <constraints>
@@ -184,12 +190,14 @@
                                 <constraints>
                                     <constraint firstItem="JRz-JY-pd5" firstAttribute="centerY" secondItem="H4Z-ls-WYo" secondAttribute="centerY" id="3jx-1e-TYo"/>
                                     <constraint firstItem="JRz-JY-pd5" firstAttribute="leading" secondItem="H4Z-ls-WYo" secondAttribute="trailing" constant="8" symbolic="YES" id="7V1-pc-WOn"/>
+                                    <constraint firstItem="JKT-wN-ZiK" firstAttribute="centerX" secondItem="H4Z-ls-WYo" secondAttribute="centerX" id="AHG-E8-Ohr"/>
                                     <constraint firstItem="H4Z-ls-WYo" firstAttribute="centerX" secondItem="yBC-QL-aFI" secondAttribute="centerX" id="Dgi-Jl-yE1"/>
                                     <constraint firstItem="ND1-T0-phy" firstAttribute="leading" secondItem="H4Z-ls-WYo" secondAttribute="trailing" constant="8" symbolic="YES" id="END-Ed-BMc"/>
                                     <constraint firstAttribute="bottom" secondItem="XYh-Vj-YnK" secondAttribute="bottom" constant="8" id="QzQ-10-DIT"/>
                                     <constraint firstItem="H4Z-ls-WYo" firstAttribute="centerY" secondItem="yBC-QL-aFI" secondAttribute="centerY" id="XIu-W8-Pn6"/>
                                     <constraint firstItem="ND1-T0-phy" firstAttribute="baseline" secondItem="H4Z-ls-WYo" secondAttribute="baseline" id="bsP-5g-T2x"/>
                                     <constraint firstItem="ND1-T0-phy" firstAttribute="top" secondItem="JRz-JY-pd5" secondAttribute="bottom" constant="16" id="eaQ-eD-gVF"/>
+                                    <constraint firstItem="JKT-wN-ZiK" firstAttribute="centerY" secondItem="H4Z-ls-WYo" secondAttribute="centerY" id="fRt-FZ-k5E"/>
                                     <constraint firstItem="ND1-T0-phy" firstAttribute="centerX" secondItem="JRz-JY-pd5" secondAttribute="centerX" id="xvw-ay-bNQ"/>
                                 </constraints>
                                 <variation key="default">
@@ -247,6 +255,9 @@
                         <outlet property="opacitySlider" destination="Mdi-Eu-Ta3" id="hwE-EU-lf8"/>
                         <outlet property="previewImageView" destination="H4Z-ls-WYo" id="yvr-XF-xCy"/>
                         <outlet property="redSlider" destination="nPd-LZ-Zyy" id="24r-jD-sME"/>
+                        <outlet property="rgbLabel" destination="xb7-pO-vvv" id="JP4-Bf-IHj"/>
+                        <outlet property="selectButton" destination="JRz-JY-pd5" id="T4N-P9-Ld9"/>
+                        <outlet property="whiteLabel" destination="JKT-wN-ZiK" id="8dK-Z5-0G9"/>
                         <outlet property="widthSlider" destination="KWJ-Ev-Why" id="O31-47-mUs"/>
                     </connections>
                 </viewController>
