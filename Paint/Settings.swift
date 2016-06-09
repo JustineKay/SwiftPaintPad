@@ -52,10 +52,29 @@ class Settings
 
     }
     
+    struct EraserSettings
+    {
+        static let eraserSavedKey = "eraserSaved"
+        
+        static func set(inout width: CGFloat, inout opacity: CGFloat, inout red: CGFloat, inout green: CGFloat, inout blue: CGFloat)
+        {
+            let defaults = NSUserDefaults.standardUserDefaults()
+            width = CGFloat(defaults.floatForKey(Settings.SavedSettings.WidthKey))
+            opacity = CGFloat(defaults.floatForKey(Settings.SavedSettings.OpacityKey))
+            red = 1.0
+            green = 1.0
+            blue = 1.0
+            defaults.setBool(true, forKey: eraserSavedKey)
+        }
+    }
+    
     class func updateSettings(inout width: CGFloat, inout opacity: CGFloat, inout red: CGFloat, inout green: CGFloat, inout blue: CGFloat)
     {
         let defaults = NSUserDefaults.standardUserDefaults()
-        if defaults.boolForKey(Settings.SavedSettings.SavedKey) {
+        
+        if defaults.boolForKey(Settings.EraserSettings.eraserSavedKey) {
+            Settings.EraserSettings.set(&width, opacity: &opacity, red: &red, green: &green, blue: &blue)
+        } else if defaults.boolForKey(Settings.SavedSettings.SavedKey) {
             Settings.SavedSettings.set(&width, opacity: &opacity, red: &red, green: &green, blue: &blue)
         } else {
             Settings.DefaultSettings.set(&width, opacity: &opacity, red: &red, green: &green, blue: &blue)
