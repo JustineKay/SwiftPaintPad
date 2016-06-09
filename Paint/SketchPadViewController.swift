@@ -46,14 +46,14 @@ class SketchPadViewController: UIViewController {
 
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
         swiped = false
-        if let touch  = touches.first! as? UITouch {
+        if let touch  = touches.first {
             lastPoint = touch.locationInView(self.view)
         }
     }
     
     override func touchesMoved(touches: Set<UITouch>, withEvent event: UIEvent?) {
         swiped = true
-        if let touch = touches.first! as? UITouch {
+        if let touch = touches.first {
             let currentPoint = touch.locationInView(view)
             drawLineFrom(lastPoint, toPoint: currentPoint)
             
