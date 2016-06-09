@@ -48,19 +48,13 @@ class SettingsViewController: UIViewController
     {
         super.viewWillAppear(animated)
         
+        eraserSelected = defaults.boolForKey(Settings.EraserSettings.eraserSavedKey)
         Settings.updateSettings(&width, opacity: &opacity, red: &red, green: &green, blue: &blue)
         
-        if defaults.boolForKey(Settings.EraserSettings.eraserSavedKey) {
-            eraserSelected = true
-            toggleSelectButtonText()
-            drawPreview()
-        } else {
-            eraserSelected = false
-            drawPreview()
-        }
-        
+        selectButtonText()
+        RGBSliders()
+        drawPreview()
         updateSliders()
-        
     }
     
         @IBAction func resetToDefaultSettings(sender: UIButton)
@@ -84,10 +78,12 @@ class SettingsViewController: UIViewController
         saveSettings()
     }
     
-    private func saveSettings() {
+    private func saveSettings()
+    {
         if eraserSelected {
             defaults.setFloat(Float(width), forKey: Settings.SavedSettings.WidthKey)
             defaults.setFloat(Float(opacity), forKey: Settings.SavedSettings.OpacityKey)
+            defaults.setBool(true, forKey: Settings.EraserSettings.eraserSavedKey)
             Settings.EraserSettings.set(&width, opacity: &opacity, red: &red, green: &green, blue: &blue)
         } else {
             defaults.setFloat(Float(width), forKey: Settings.SavedSettings.WidthKey)
@@ -98,18 +94,17 @@ class SettingsViewController: UIViewController
             defaults.setBool(true, forKey: Settings.SavedSettings.SavedKey)
             defaults.setBool(false, forKey: Settings.EraserSettings.eraserSavedKey)
         }
-        
     }
     
-    @IBAction func toggleEraser(sender: UIButton)
+    @IBAction func toggleEraser(sender: AnyObject)
     {
-        togglePreview()
-        toggleSelectButtonText()
-        toggleRGBSliders()
+        eraser()
+        selectButtonText()
+        RGBSliders()
         drawPreview()
     }
     
-    private func toggleSelectButtonText()
+    private func selectButtonText()
     {
         if eraserSelected {
             selectButton.titleLabel!.text = selectEraser
@@ -118,7 +113,7 @@ class SettingsViewController: UIViewController
         }
     }
     
-    private func toggleRGBSliders()
+    private func RGBSliders()
     {
         if eraserSelected {
             rgbLabel.hidden = true
@@ -133,13 +128,15 @@ class SettingsViewController: UIViewController
         }
     }
     
-    private func togglePreview()
+    private func eraser()
     {
         if !eraserSelected {
-            eraserSelected = true
+            defaults.setBool(true, forKey:Settings.EraserSettings.eraserSavedKey)
         } else {
-            eraserSelected = false
+            defaults.setBool(false, forKey:Settings.EraserSettings.eraserSavedKey)
         }
+        
+        eraserSelected = defaults.boolForKey(Settings.EraserSettings.eraserSavedKey)
         
     }
     

@@ -182,7 +182,7 @@
                                         </constraints>
                                         <state key="normal" image="magicEraser"/>
                                         <connections>
-                                            <action selector="toggleEraser:" destination="3Jh-Bg-z25" eventType="touchUpInside" id="huy-eu-m35"/>
+                                            <action selector="toggleEraser:" destination="3Jh-Bg-z25" eventType="touchUpInside" id="36c-U0-RGO"/>
                                         </connections>
                                     </button>
                                 </subviews>
