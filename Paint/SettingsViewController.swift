@@ -11,6 +11,7 @@ import UIKit
 class SettingsViewController: UIViewController
 {
     
+    @IBOutlet weak var previewImageViewBackgroundView: UIView!
     @IBOutlet weak var previewImageView: UIImageView!
     
     @IBOutlet weak var widthSlider: UISlider!
@@ -24,7 +25,6 @@ class SettingsViewController: UIViewController
     @IBOutlet weak var eraserButtonBackgroundView: UIView!
     
     @IBOutlet weak var rgbLabel: UILabel!
-    @IBOutlet weak var whiteLabel: UILabel!
     
     private var width = CGFloat()
     private var opacity = CGFloat()
@@ -46,8 +46,7 @@ class SettingsViewController: UIViewController
         eraserButtonBackgroundView.layer.borderColor = UIColor.blackColor().CGColor
         eraserButtonBackgroundView.layer.cornerRadius = 15
         
-        whiteLabel.hidden = true
-        whiteLabel.textColor = UIColor.whiteColor()
+        previewImageViewBackgroundView.layer.cornerRadius = 15
     }
 
     override func viewWillAppear(animated: Bool)
@@ -182,16 +181,15 @@ class SettingsViewController: UIViewController
         
         if eraserSelected {
             CGContextSetRGBStrokeColor(context, 0, 0, 0, opacity)
-            whiteLabel.hidden = true
         } else {
             if red == 1.0 && green == 1.0 && blue == 1.0 {
-                CGContextSetRGBStrokeColor(context, 0, 0, 0, opacity)
+                CGContextSetRGBStrokeColor(context, red, blue, green, opacity)
                 selectButton.setTitle("White", forState: .Normal)
-                whiteLabel.hidden = false
+                previewImageViewBackgroundView.backgroundColor = UIColor.blackColor()
             } else {
                 CGContextSetRGBStrokeColor(context, red, green, blue, opacity)
                 updateSelectButtonText()
-                whiteLabel.hidden = true
+                previewImageViewBackgroundView.backgroundColor = UIColor.clearColor()
             }
         }
         
