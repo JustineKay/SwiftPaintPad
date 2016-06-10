@@ -24,15 +24,20 @@ class SketchPadViewController: UIViewController {
     private let defaults = NSUserDefaults.standardUserDefaults()
     private let mainImageKey = "mainImage"
     
-    override func canBecomeFirstResponder() -> Bool {
+    override func canBecomeFirstResponder() -> Bool
+    {
         return true
     }
     
-    override func viewDidAppear(animated: Bool) {
+    //MARK: - LifeCycle Methods
+    
+    override func viewDidAppear(animated: Bool)
+    {
         self.becomeFirstResponder()
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(animated: Bool)
+    {
         super.viewWillAppear(animated)
         
         if defaults.valueForKey(mainImageKey) != nil {
@@ -57,18 +62,25 @@ class SketchPadViewController: UIViewController {
         }
     }
     
-    override func motionEnded(motion: UIEventSubtype, withEvent event: UIEvent?) {
+    //MARK: - Actions
+    
+    override func motionEnded(motion: UIEventSubtype, withEvent event: UIEvent?)
+    {
         if motion == UIEventSubtype.MotionShake {
             clearSketchPadAnimation()
-            mainImageView.image = nil
-            tempImageView.image = nil
-            defaults.setValue(nil, forKey: mainImageKey)
         }
     }
     
     func clearSketchPadAnimation()
     {
         //TODO - Fade out image view
+        UIView.animateWithDuration(0.75, delay: 0.0, options: .CurveEaseInOut, animations: {
+            self.mainImageView.alpha = 0
+            }) { (true) in
+                self.mainImageView.image = nil
+                self.tempImageView.image = nil
+                self.defaults.setValue(nil, forKey: self.mainImageKey)
+        }
     }
     
     @IBAction func clearSketchPad(sender: UIBarButtonItem)
@@ -77,17 +89,17 @@ class SketchPadViewController: UIViewController {
         tempImageView.image = nil
         defaults.setValue(nil, forKey: mainImageKey)
     }
-    
-    //MARK: - Actions
 
-    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?)
+    {
         swiped = false
         if let touch  = touches.first {
             lastPoint = touch.locationInView(self.view)
         }
     }
     
-    override func touchesMoved(touches: Set<UITouch>, withEvent event: UIEvent?) {
+    override func touchesMoved(touches: Set<UITouch>, withEvent event: UIEvent?)
+    {
         swiped = true
         if let touch = touches.first {
             let currentPoint = touch.locationInView(view)
@@ -98,7 +110,8 @@ class SketchPadViewController: UIViewController {
     }
     
     
-    override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
+    override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?)
+    {
         if !swiped {
             drawLineFrom(lastPoint, toPoint: lastPoint)
         }
@@ -114,8 +127,10 @@ class SketchPadViewController: UIViewController {
         tempImageView.image = nil
     }
     
-    func drawLineFrom(fromPoint: CGPoint, toPoint: CGPoint) {
-        
+    //MARK: - Drawing
+    
+    func drawLineFrom(fromPoint: CGPoint, toPoint: CGPoint)
+    {
         UIGraphicsBeginImageContext(view.frame.size)
         let context = UIGraphicsGetCurrentContext()
         tempImageView.image?.drawInRect(CGRect(x: 0, y: 0, width: view.frame.size.width, height: view.frame.size.height))

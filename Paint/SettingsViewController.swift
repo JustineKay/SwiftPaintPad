@@ -39,7 +39,10 @@ class SettingsViewController: UIViewController
     
     private let defaults = NSUserDefaults.standardUserDefaults()
     
-    override func viewDidLoad() {
+    //MARK: - LifeCycle Methods
+    
+    override func viewDidLoad()
+    {
         super.viewDidLoad()
         
         eraserButtonBackgroundView.layer.borderWidth = 1.5
@@ -63,20 +66,13 @@ class SettingsViewController: UIViewController
         drawPreview()
     }
     
-        @IBAction func resetToDefaultSettings(sender: UIButton)
+    //MARK: - Actions
+    
+    @IBAction func resetToDefaultSettings(sender: UIButton)
     {
         Settings.DefaultSettings.set(&width, opacity: &opacity, red: &red, green: &green, blue: &blue)
         drawPreview()
         updateSliders()
-    }
-    
-    private func updateSliders()
-    {
-        widthSlider.value = Float(width)
-        opacitySlider.value = Float(opacity)
-        redSlider.value = Float(red * 255.0)
-        greenSlider.value = Float(green * 255.0)
-        blueSlider.value = Float(blue * 255.0)
     }
     
     @IBAction func selectButtonTapped(sender: AnyObject)
@@ -124,6 +120,17 @@ class SettingsViewController: UIViewController
         
     }
     
+    //MARK: - Update UI
+    
+    private func updateSliders()
+    {
+        widthSlider.value = Float(width)
+        opacitySlider.value = Float(opacity)
+        redSlider.value = Float(red * 255.0)
+        greenSlider.value = Float(green * 255.0)
+        blueSlider.value = Float(blue * 255.0)
+    }
+
     func updatEraserButtonUI()
     {
         if eraserSelected {
@@ -157,7 +164,8 @@ class SettingsViewController: UIViewController
         }
         
     }
-        @IBAction func sliderChanged(sender: UISlider)
+    
+    @IBAction func sliderChanged(sender: UISlider)
     {
         
         if sender == widthSlider {
@@ -172,6 +180,9 @@ class SettingsViewController: UIViewController
         
         drawPreview()
     }
+    
+    
+    //MARK: - Drawing
     
     private func drawPreview()
     {
