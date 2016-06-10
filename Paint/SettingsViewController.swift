@@ -22,6 +22,7 @@ class SettingsViewController: UIViewController
     
     @IBOutlet weak var selectButton: UIButton!
     @IBOutlet weak var eraserButton: UIButton!
+    @IBOutlet weak var eraserButtonBackgroundView: UIView!
     
     @IBOutlet weak var rgbLabel: UILabel!
     @IBOutlet weak var whiteLabel: UILabel!
@@ -41,6 +42,11 @@ class SettingsViewController: UIViewController
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        eraserButtonBackgroundView.layer.borderWidth = 1.5
+        eraserButtonBackgroundView.layer.borderColor = UIColor.blackColor().CGColor
+        eraserButtonBackgroundView.layer.cornerRadius = 15
+        
         whiteLabel.hidden = true
         whiteLabel.textColor = UIColor.whiteColor()
     }
@@ -52,8 +58,9 @@ class SettingsViewController: UIViewController
         eraserSelected = defaults.boolForKey(Settings.EraserSettings.EraserSavedKey)
         Settings.updateSettings(&width, opacity: &opacity, red: &red, green: &green, blue: &blue)
         
-        selectButtonText()
-        RGBSliders()
+        updatEraserButtonUI()
+        updateSelectButtonText()
+        updateRGBSliders()
         drawPreview()
         updateSliders()
     }
@@ -99,13 +106,35 @@ class SettingsViewController: UIViewController
     
     @IBAction func toggleEraser(sender: AnyObject)
     {
-        eraser()
-        selectButtonText()
-        RGBSliders()
+        updateEraserSavedKey()
+        updatEraserButtonUI()
+        updateSelectButtonText()
+        updateRGBSliders()
         drawPreview()
     }
     
-    private func selectButtonText()
+    private func updateEraserSavedKey()
+    {
+        if !eraserSelected {
+            defaults.setBool(true, forKey:Settings.EraserSettings.EraserSavedKey)
+        } else {
+            defaults.setBool(false, forKey:Settings.EraserSettings.EraserSavedKey)
+        }
+        
+        eraserSelected = defaults.boolForKey(Settings.EraserSettings.EraserSavedKey)
+        
+    }
+    
+    func updatEraserButtonUI()
+    {
+        if eraserSelected {
+            eraserButtonBackgroundView.layer.backgroundColor = UIColor.lightGrayColor().CGColor
+        } else {
+            eraserButtonBackgroundView.layer.backgroundColor = UIColor.clearColor().CGColor
+        }
+    }
+    
+    private func updateSelectButtonText()
     {
         if eraserSelected {
             selectButton.setTitle(Settings.EraserSettings.EraserSelected, forState: .Normal)
@@ -114,7 +143,7 @@ class SettingsViewController: UIViewController
         }
     }
     
-    private func RGBSliders()
+    private func updateRGBSliders()
     {
         if eraserSelected {
             rgbLabel.hidden = true
@@ -128,20 +157,7 @@ class SettingsViewController: UIViewController
             blueSlider.hidden = false
         }
     }
-    
-    private func eraser()
-    {
-        if !eraserSelected {
-            defaults.setBool(true, forKey:Settings.EraserSettings.EraserSavedKey)
-        } else {
-            defaults.setBool(false, forKey:Settings.EraserSettings.EraserSavedKey)
-        }
-        
-        eraserSelected = defaults.boolForKey(Settings.EraserSettings.EraserSavedKey)
-        
-    }
-    
-    @IBAction func sliderChanged(sender: UISlider)
+        @IBAction func sliderChanged(sender: UISlider)
     {
         
         if sender == widthSlider {
@@ -175,7 +191,7 @@ class SettingsViewController: UIViewController
                 whiteLabel.hidden = false
             } else {
                 CGContextSetRGBStrokeColor(context, red, green, blue, opacity)
-                selectButtonText()
+                updateSelectButtonText()
                 whiteLabel.hidden = true
             }
         }

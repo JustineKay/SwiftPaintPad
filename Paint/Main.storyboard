@@ -174,38 +174,48 @@
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XYh-Vj-YnK">
-                                        <rect key="frame" x="0.0" y="187" width="48" height="41"/>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0R8-iz-ojq">
+                                        <rect key="frame" x="0.0" y="164" width="64" height="64"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XYh-Vj-YnK">
+                                                <rect key="frame" x="8" y="12" width="48" height="41"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="48" id="SjZ-hf-Gxv"/>
+                                                    <constraint firstAttribute="height" constant="41" id="UMe-p3-1AQ"/>
+                                                </constraints>
+                                                <color key="tintColor" red="1" green="0.20756921996353639" blue="0.35792479822680456" alpha="1" colorSpace="calibratedRGB"/>
+                                                <state key="normal" image="magicEraser"/>
+                                                <connections>
+                                                    <action selector="toggleEraser:" destination="3Jh-Bg-z25" eventType="touchUpInside" id="36c-U0-RGO"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="48" id="SjZ-hf-Gxv"/>
-                                            <constraint firstAttribute="height" constant="41" id="UMe-p3-1AQ"/>
+                                            <constraint firstItem="XYh-Vj-YnK" firstAttribute="centerX" secondItem="0R8-iz-ojq" secondAttribute="centerX" id="Rrs-I5-MrP"/>
+                                            <constraint firstAttribute="width" constant="64" id="isF-Jq-mEQ"/>
+                                            <constraint firstItem="XYh-Vj-YnK" firstAttribute="centerY" secondItem="0R8-iz-ojq" secondAttribute="centerY" id="jRo-1e-IlN"/>
+                                            <constraint firstAttribute="height" constant="64" id="xoG-K4-GLF"/>
                                         </constraints>
-                                        <color key="tintColor" red="1" green="0.20756921996353639" blue="0.35792479822680456" alpha="1" colorSpace="calibratedRGB"/>
-                                        <state key="normal" image="magicEraser"/>
-                                        <connections>
-                                            <action selector="toggleEraser:" destination="3Jh-Bg-z25" eventType="touchUpInside" id="36c-U0-RGO"/>
-                                        </connections>
-                                    </button>
+                                    </view>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstItem="XYh-Vj-YnK" firstAttribute="leading" secondItem="yBC-QL-aFI" secondAttribute="leading" id="3jp-9C-But"/>
                                     <constraint firstItem="JRz-JY-pd5" firstAttribute="centerY" secondItem="H4Z-ls-WYo" secondAttribute="centerY" id="3jx-1e-TYo"/>
                                     <constraint firstItem="JRz-JY-pd5" firstAttribute="leading" secondItem="H4Z-ls-WYo" secondAttribute="trailing" constant="8" symbolic="YES" id="7V1-pc-WOn"/>
                                     <constraint firstItem="JKT-wN-ZiK" firstAttribute="centerX" secondItem="H4Z-ls-WYo" secondAttribute="centerX" id="AHG-E8-Ohr"/>
                                     <constraint firstItem="H4Z-ls-WYo" firstAttribute="centerX" secondItem="yBC-QL-aFI" secondAttribute="centerX" id="Dgi-Jl-yE1"/>
                                     <constraint firstItem="ND1-T0-phy" firstAttribute="leading" secondItem="H4Z-ls-WYo" secondAttribute="trailing" constant="8" symbolic="YES" id="END-Ed-BMc"/>
-                                    <constraint firstAttribute="bottom" secondItem="XYh-Vj-YnK" secondAttribute="bottom" constant="8" id="QzQ-10-DIT"/>
+                                    <constraint firstItem="0R8-iz-ojq" firstAttribute="leading" secondItem="yBC-QL-aFI" secondAttribute="leading" id="IVj-pY-yal"/>
+                                    <constraint firstAttribute="bottom" secondItem="0R8-iz-ojq" secondAttribute="bottom" constant="8" id="Owf-OV-ZP4"/>
                                     <constraint firstItem="H4Z-ls-WYo" firstAttribute="centerY" secondItem="yBC-QL-aFI" secondAttribute="centerY" id="XIu-W8-Pn6"/>
                                     <constraint firstItem="ND1-T0-phy" firstAttribute="baseline" secondItem="H4Z-ls-WYo" secondAttribute="baseline" id="bsP-5g-T2x"/>
                                     <constraint firstItem="ND1-T0-phy" firstAttribute="top" secondItem="JRz-JY-pd5" secondAttribute="bottom" constant="16" id="eaQ-eD-gVF"/>
                                     <constraint firstItem="JKT-wN-ZiK" firstAttribute="centerY" secondItem="H4Z-ls-WYo" secondAttribute="centerY" id="fRt-FZ-k5E"/>
-                                    <constraint firstAttribute="bottom" secondItem="XYh-Vj-YnK" secondAttribute="bottom" constant="8" id="l9F-TQ-ufz"/>
                                     <constraint firstItem="ND1-T0-phy" firstAttribute="centerX" secondItem="JRz-JY-pd5" secondAttribute="centerX" id="xvw-ay-bNQ"/>
                                 </constraints>
                                 <variation key="default">
                                     <mask key="constraints">
-                                        <exclude reference="QzQ-10-DIT"/>
                                         <exclude reference="END-Ed-BMc"/>
                                         <exclude reference="bsP-5g-T2x"/>
                                     </mask>
@@ -219,7 +229,6 @@
                             <constraint firstItem="xb7-pO-vvv" firstAttribute="leading" secondItem="P81-HD-CWs" secondAttribute="leadingMargin" id="5Bb-Jt-eIx"/>
                             <constraint firstAttribute="trailingMargin" secondItem="KWJ-Ev-Why" secondAttribute="trailing" id="DaD-5d-5fE"/>
                             <constraint firstItem="nau-2j-Da9" firstAttribute="top" secondItem="9fd-6o-xBg" secondAttribute="bottom" constant="8" symbolic="YES" id="Dip-ra-pKc"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="XYh-Vj-YnK" secondAttribute="trailing" constant="8" id="Ez8-WZ-cDI"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Kv3-ae-EwK" secondAttribute="trailing" id="GP1-zc-ueq"/>
                             <constraint firstItem="Mdi-Eu-Ta3" firstAttribute="top" secondItem="xEX-xS-Ejj" secondAttribute="bottom" constant="8" id="HL6-Zq-l5I"/>
                             <constraint firstItem="nPd-LZ-Zyy" firstAttribute="top" secondItem="xb7-pO-vvv" secondAttribute="bottom" constant="8" symbolic="YES" id="HW6-cL-tkm"/>
@@ -245,11 +254,6 @@
                             <constraint firstAttribute="trailingMargin" secondItem="g7S-Rq-ajX" secondAttribute="trailing" id="xD0-ss-TLj"/>
                             <constraint firstAttribute="leadingMargin" secondItem="9fd-6o-xBg" secondAttribute="leading" id="y6z-EY-nv2"/>
                         </constraints>
-                        <variation key="default">
-                            <mask key="constraints">
-                                <exclude reference="Ez8-WZ-cDI"/>
-                            </mask>
-                        </variation>
                     </view>
                     <navigationItem key="navigationItem" title="Ink up!" id="Fci-cd-2Vu">
                         <barButtonItem key="rightBarButtonItem" title="Cancel" id="H2Z-kb-lAe">
@@ -261,6 +265,7 @@
                     <connections>
                         <outlet property="blueSlider" destination="9fd-6o-xBg" id="2Dm-gA-8bU"/>
                         <outlet property="eraserButton" destination="XYh-Vj-YnK" id="ADx-2y-7a6"/>
+                        <outlet property="eraserButtonBackgroundView" destination="0R8-iz-ojq" id="wHJ-9V-w2a"/>
                         <outlet property="greenSlider" destination="fGH-Dh-x6e" id="j65-Tu-dg5"/>
                         <outlet property="opacitySlider" destination="Mdi-Eu-Ta3" id="hwE-EU-lf8"/>
                         <outlet property="previewImageView" destination="H4Z-ls-WYo" id="yvr-XF-xCy"/>
