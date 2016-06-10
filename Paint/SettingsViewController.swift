@@ -59,8 +59,8 @@ class SettingsViewController: UIViewController
         updatEraserButtonUI()
         updateSelectButtonText()
         updateRGBSliders()
-        drawPreview()
         updateSliders()
+        drawPreview()
     }
     
         @IBAction func resetToDefaultSettings(sender: UIButton)
@@ -108,6 +108,7 @@ class SettingsViewController: UIViewController
         updatEraserButtonUI()
         updateSelectButtonText()
         updateRGBSliders()
+        updateSliders()
         drawPreview()
     }
     
@@ -154,6 +155,7 @@ class SettingsViewController: UIViewController
             greenSlider.hidden = false
             blueSlider.hidden = false
         }
+        
     }
         @IBAction func sliderChanged(sender: UISlider)
     {
@@ -181,6 +183,7 @@ class SettingsViewController: UIViewController
         
         if eraserSelected {
             CGContextSetRGBStrokeColor(context, 0, 0, 0, opacity)
+            previewImageViewBackgroundView.backgroundColor = UIColor.clearColor()
         } else {
             if red == 1.0 && green == 1.0 && blue == 1.0 {
                 CGContextSetRGBStrokeColor(context, red, blue, green, opacity)

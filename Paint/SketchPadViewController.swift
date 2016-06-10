@@ -24,6 +24,14 @@ class SketchPadViewController: UIViewController {
     private let defaults = NSUserDefaults.standardUserDefaults()
     private let mainImageKey = "mainImage"
     
+    override func canBecomeFirstResponder() -> Bool {
+        return true
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        self.becomeFirstResponder()
+    }
+    
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
@@ -47,6 +55,20 @@ class SketchPadViewController: UIViewController {
             }
             
         }
+    }
+    
+    override func motionEnded(motion: UIEventSubtype, withEvent event: UIEvent?) {
+        if motion == UIEventSubtype.MotionShake {
+            clearSketchPadAnimation()
+            mainImageView.image = nil
+            tempImageView.image = nil
+            defaults.setValue(nil, forKey: mainImageKey)
+        }
+    }
+    
+    func clearSketchPadAnimation()
+    {
+        //TODO - Fade out image view
     }
     
     @IBAction func clearSketchPad(sender: UIBarButtonItem)
