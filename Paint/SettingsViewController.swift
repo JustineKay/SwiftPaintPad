@@ -48,7 +48,7 @@ class SettingsViewController: UIViewController
             selectButtonLabelText = Settings.EraserSettings.ColorSelected
         }
         
-        selectButton.titleLabel!.text = selectButtonLabelText
+        selectButton.setTitle(selectButtonLabelText, forState: .Normal)
         whiteLabel.hidden = true
     }
 
@@ -115,9 +115,9 @@ class SettingsViewController: UIViewController
     private func selectButtonText()
     {
         if eraserSelected {
-            selectButton.titleLabel!.text = Settings.EraserSettings.EraserSelected
+            selectButton.setTitle(Settings.EraserSettings.EraserSelected, forState: .Normal)
         } else {
-            selectButton.titleLabel!.text = Settings.EraserSettings.ColorSelected
+            selectButton.setTitle(Settings.EraserSettings.ColorSelected, forState: .Normal)
         }
     }
     
