@@ -40,16 +40,8 @@ class SettingsViewController: UIViewController
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        eraserSelected = defaults.boolForKey(Settings.EraserSettings.EraserSavedKey)
-        if eraserSelected {
-            selectButtonLabelText = Settings.EraserSettings.EraserSelected
-        } else {
-            selectButtonLabelText = Settings.EraserSettings.ColorSelected
-        }
-        
-        selectButton.setTitle(selectButtonLabelText, forState: .Normal)
         whiteLabel.hidden = true
+        whiteLabel.textColor = UIColor.whiteColor()
     }
 
     override func viewWillAppear(animated: Bool)
@@ -176,10 +168,13 @@ class SettingsViewController: UIViewController
             CGContextSetRGBStrokeColor(context, 0, 0, 0, opacity)
             whiteLabel.hidden = true
         } else {
-            CGContextSetRGBStrokeColor(context, red, green, blue, opacity)
             if red == 1.0 && green == 1.0 && blue == 1.0 {
+                CGContextSetRGBStrokeColor(context, 0, 0, 0, opacity)
+                selectButton.setTitle("White", forState: .Normal)
                 whiteLabel.hidden = false
             } else {
+                CGContextSetRGBStrokeColor(context, red, green, blue, opacity)
+                selectButtonText()
                 whiteLabel.hidden = true
             }
         }
