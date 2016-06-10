@@ -33,14 +33,22 @@ class SettingsViewController: UIViewController
     
     private var eraserSelected = false
     private let eraserImageName = "eraser"
-    private let selectEraser = "Eraser"
-    private let select = "Select"
+    
+    var selectButtonLabelText = String()
     
     private let defaults = NSUserDefaults.standardUserDefaults()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        eraserSelected = defaults.boolForKey(Settings.EraserSettings.EraserSavedKey)
+        if eraserSelected {
+            selectButtonLabelText = Settings.EraserSettings.EraserSelected
+        } else {
+            selectButtonLabelText = Settings.EraserSettings.ColorSelected
+        }
+        
+        selectButton.titleLabel!.text = selectButtonLabelText
         whiteLabel.hidden = true
     }
 
@@ -48,7 +56,7 @@ class SettingsViewController: UIViewController
     {
         super.viewWillAppear(animated)
         
-        eraserSelected = defaults.boolForKey(Settings.EraserSettings.eraserSavedKey)
+        eraserSelected = defaults.boolForKey(Settings.EraserSettings.EraserSavedKey)
         Settings.updateSettings(&width, opacity: &opacity, red: &red, green: &green, blue: &blue)
         
         selectButtonText()
@@ -83,7 +91,7 @@ class SettingsViewController: UIViewController
         if eraserSelected {
             defaults.setFloat(Float(width), forKey: Settings.SavedSettings.WidthKey)
             defaults.setFloat(Float(opacity), forKey: Settings.SavedSettings.OpacityKey)
-            defaults.setBool(true, forKey: Settings.EraserSettings.eraserSavedKey)
+            defaults.setBool(true, forKey: Settings.EraserSettings.EraserSavedKey)
             Settings.EraserSettings.set(&width, opacity: &opacity, red: &red, green: &green, blue: &blue)
         } else {
             defaults.setFloat(Float(width), forKey: Settings.SavedSettings.WidthKey)
@@ -92,7 +100,7 @@ class SettingsViewController: UIViewController
             defaults.setFloat(Float(green), forKey: Settings.SavedSettings.GreenKey)
             defaults.setFloat(Float(blue), forKey: Settings.SavedSettings.BlueKey)
             defaults.setBool(true, forKey: Settings.SavedSettings.SavedKey)
-            defaults.setBool(false, forKey: Settings.EraserSettings.eraserSavedKey)
+            defaults.setBool(false, forKey: Settings.EraserSettings.EraserSavedKey)
         }
     }
     
@@ -107,9 +115,9 @@ class SettingsViewController: UIViewController
     private func selectButtonText()
     {
         if eraserSelected {
-            selectButton.titleLabel!.text = selectEraser
+            selectButton.titleLabel!.text = Settings.EraserSettings.EraserSelected
         } else {
-            selectButton.titleLabel!.text = select
+            selectButton.titleLabel!.text = Settings.EraserSettings.ColorSelected
         }
     }
     
@@ -131,12 +139,12 @@ class SettingsViewController: UIViewController
     private func eraser()
     {
         if !eraserSelected {
-            defaults.setBool(true, forKey:Settings.EraserSettings.eraserSavedKey)
+            defaults.setBool(true, forKey:Settings.EraserSettings.EraserSavedKey)
         } else {
-            defaults.setBool(false, forKey:Settings.EraserSettings.eraserSavedKey)
+            defaults.setBool(false, forKey:Settings.EraserSettings.EraserSavedKey)
         }
         
-        eraserSelected = defaults.boolForKey(Settings.EraserSettings.eraserSavedKey)
+        eraserSelected = defaults.boolForKey(Settings.EraserSettings.EraserSavedKey)
         
     }
     

@@ -54,7 +54,9 @@ class Settings
     
     struct EraserSettings
     {
-        static let eraserSavedKey = "eraserSaved"
+        static let EraserSavedKey = "eraserSaved"
+        static let EraserSelected = "Eraser"
+        static let ColorSelected = "Select"
         
         static func set(inout width: CGFloat, inout opacity: CGFloat, inout red: CGFloat, inout green: CGFloat, inout blue: CGFloat)
         {
@@ -64,7 +66,7 @@ class Settings
             red = 1.0
             green = 1.0
             blue = 1.0
-            defaults.setBool(true, forKey: eraserSavedKey)
+            defaults.setBool(true, forKey: EraserSavedKey)
         }
     }
     
@@ -72,7 +74,7 @@ class Settings
     {
         let defaults = NSUserDefaults.standardUserDefaults()
         
-        if defaults.boolForKey(Settings.EraserSettings.eraserSavedKey) {
+        if defaults.boolForKey(Settings.EraserSettings.EraserSavedKey) {
             Settings.EraserSettings.set(&width, opacity: &opacity, red: &red, green: &green, blue: &blue)
         } else if defaults.boolForKey(Settings.SavedSettings.SavedKey) {
             Settings.SavedSettings.set(&width, opacity: &opacity, red: &red, green: &green, blue: &blue)

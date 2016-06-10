@@ -35,6 +35,20 @@ class SketchPadViewController: UIViewController {
         Settings.updateSettings(&width, opacity: &opacity, red: &red, green: &green, blue: &blue)
     }
     
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)
+    {
+        if defaults.boolForKey(Settings.EraserSettings.EraserSavedKey) {
+            var destination = segue.destinationViewController as? UIViewController
+            if let navCon = destination as? UINavigationController {
+                destination = navCon.visibleViewController
+            }
+            if let settingsVC = destination as? SettingsViewController {
+                settingsVC.selectButtonLabelText = "Eraser"
+            }
+            
+        }
+    }
+    
     @IBAction func clearSketchPad(sender: UIBarButtonItem)
     {
         mainImageView.image = nil
