@@ -264,7 +264,6 @@
                     </navigationItem>
                     <connections>
                         <outlet property="blueSlider" destination="9fd-6o-xBg" id="2Dm-gA-8bU"/>
-                        <outlet property="eraserButton" destination="XYh-Vj-YnK" id="ADx-2y-7a6"/>
                         <outlet property="eraserButtonBackgroundView" destination="0R8-iz-ojq" id="wHJ-9V-w2a"/>
                         <outlet property="greenSlider" destination="fGH-Dh-x6e" id="j65-Tu-dg5"/>
                         <outlet property="opacitySlider" destination="Mdi-Eu-Ta3" id="hwE-EU-lf8"/>

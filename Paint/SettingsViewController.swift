@@ -21,7 +21,6 @@ class SettingsViewController: UIViewController
     @IBOutlet weak var blueSlider: UISlider!
     
     @IBOutlet weak var selectButton: UIButton!
-    @IBOutlet weak var eraserButton: UIButton!
     @IBOutlet weak var eraserButtonBackgroundView: UIView!
     
     @IBOutlet weak var rgbLabel: UILabel!
