@@ -70,9 +70,14 @@ class SettingsViewController: UIViewController
     
     @IBAction func resetToDefaultSettings(sender: UIButton)
     {
-        Settings.DefaultSettings.set(&width, opacity: &opacity, red: &red, green: &green, blue: &blue)
-        drawPreview()
-        updateSliders()
+        if eraserSelected {
+            Settings.DefaultSettings.set(&width, opacity: &opacity, red: &red, green: &green, blue: &blue)
+            toggleEraser(self)
+        } else {
+            Settings.DefaultSettings.set(&width, opacity: &opacity, red: &red, green: &green, blue: &blue)
+            updateSliders()
+            drawPreview()
+        }
     }
     
     @IBAction func selectButtonTapped(sender: AnyObject)
